@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Choice Questions</title>
+</head>
+<body>
+    <h1>Multiple Choice Questions</h1>
+    <form method="POST" action="/submit_mcq">
+        {% for question in questions %}
+            <div>
+                <p>{{ question.question_text }}</p>
+                <label>
+                    <input type="radio" name="q{{ question.id }}" value="A"> {{ question.option_a }}
+                </label><br>
+                <label>
+                    <input type="radio" name="q{{ question.id }}" value="B"> {{ question.option_b }}
+                </label><br>
+                <label>
+                    <input type="radio" name="q{{ question.id }}" value="C"> {{ question.option_c }}
+                </label><br>
+                <label>
+                    <input type="radio" name="q{{ question.id }}" value="D"> {{ question.option_d }}
+                </label><br>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
